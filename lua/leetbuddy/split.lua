@@ -112,12 +112,12 @@ end
 function M.close_split()
   if input_buffer then
     vim.api.nvim_buf_call(input_buffer, function()
-      close_buffer_window(vim.api.nvim_get_current_win())
+      pcall(close_buffer_window(vim.api.nvim_get_current_win()))
     end)
   end
   if results_buffer then
     vim.api.nvim_buf_call(results_buffer, function()
-      close_buffer_window(vim.api.nvim_get_current_win())
+      pcall(close_buffer_window(vim.api.nvim_get_current_win()))
     end)
   end
 
