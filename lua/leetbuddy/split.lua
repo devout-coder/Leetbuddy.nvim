@@ -106,18 +106,19 @@ end
 
 local function close_buffer_window(win)
   local num = vim.api.nvim_win_get_number(win) - 1
-  vim.cmd(num .. "close")
+  print(num)
+  -- vim.cmd(num .. "close")
 end
 
 function M.close_split()
   if input_buffer then
     vim.api.nvim_buf_call(input_buffer, function()
-      pcall(close_buffer_window(vim.api.nvim_get_current_win()))
+      close_buffer_window(vim.api.nvim_get_current_win())
     end)
   end
   if results_buffer then
     vim.api.nvim_buf_call(results_buffer, function()
-      pcall(close_buffer_window(vim.api.nvim_get_current_win()))
+      close_buffer_window(vim.api.nvim_get_current_win())
     end)
   end
 
